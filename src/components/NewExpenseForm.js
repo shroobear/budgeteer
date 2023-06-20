@@ -63,11 +63,10 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
   }
 
   return (
-    <label htmlFor="addNewExpenseForm">
-      Add New Expense:
       <form id="addNewExpenseForm" onSubmit={addExpense}>
+        Add New Expense:
         <label htmlFor="date">
-          Date{" "}
+          Date: {" "}
           <input
             type="date"
             name="date"
@@ -85,7 +84,7 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
           />
         </label>
         <label htmlFor="categories">
-          Category
+          Category:{" "}
           <select
             name="categoryId"
             id="categoryId"
@@ -105,7 +104,7 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
           />
         </label>
         <label htmlFor="account">
-          Account
+          Account:{" "}
           <select
             name="accountId"
             id="accountId"
@@ -129,7 +128,6 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
           Add
         </button>
       </form>
-    </label>
   );
 }
 
