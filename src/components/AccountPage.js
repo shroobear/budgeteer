@@ -48,7 +48,6 @@ function AccountPage({ accounts, openDialog, setAccounts }) {
   function changeBalance(e) {
     e.preventDefault();
     const updatedAccount = { ...account, amount: parseFloat(newBalance) };
-    console.log(updatedAccount);
     fetch(`http://localhost:4000/accounts/${account.id}`, {
       method: "PATCH",
       headers: {
@@ -58,7 +57,6 @@ function AccountPage({ accounts, openDialog, setAccounts }) {
     })
       .then((r) => {
         if (r.ok) {
-          console.log("Balance updated", updatedAccount);
           setAccount(updatedAccount);
           setIsBalanceDialogOpen(false);
           setAccounts((prevAccounts) =>
