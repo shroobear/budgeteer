@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
-function Accounts() {
+function Accounts({ expenses, accounts, setAccounts, categories}) {
+
   return (
-    <div>Accounts</div>
-  )
+    <div>
+      <h1 className="page-header">Accounts</h1>
+    </div>
+  );
 }
 
-export default Accounts
+export default Accounts;
