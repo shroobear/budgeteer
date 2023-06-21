@@ -59,7 +59,7 @@ function Expenses() {
 
   return (
     <div>
-      <h1>Expenses</h1>
+      <h1 id="expense-header">Expenses</h1>
       <ExpenseTable
         expenses={expenses}
         categories={categories}

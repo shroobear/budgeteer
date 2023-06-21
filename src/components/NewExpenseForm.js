@@ -10,8 +10,6 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
     isRecurring: false,
   });
 
-
-
   function addExpense(e) {
     e.preventDefault();
 
@@ -65,10 +63,11 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
   }
 
   return (
+    <div className="expense-form-card">
       <form id="addNewExpenseForm" onSubmit={addExpense}>
-        Add New Expense:
+        <p>Add New Expense:</p>
         <label htmlFor="date">
-          Date: {" "}
+          Date:{" "}
           <input
             type="date"
             name="date"
@@ -130,6 +129,7 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
           Add
         </button>
       </form>
+    </div>
   );
 }
 
