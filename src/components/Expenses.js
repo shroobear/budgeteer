@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ExpenseTable from "./ExpenseTable";
 import NewExpenseForm from "./NewExpenseForm";
 
-function Expenses() {
-  const [expenses, setExpenses] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [accounts, setAccounts] = useState([]);
+function Expenses({expenses, setExpenses, accounts, setAccounts, categories, setCategories }) {
 
   useEffect(() => {
     fetch("http://localhost:4000/expenses")
@@ -42,7 +39,7 @@ function Expenses() {
       .catch((error) => {
         console.error("Error fetching accounts:", error);
       });
-  }, []);
+  }, [setExpenses, setAccounts, setCategories]);
 
   function onExpenseAdd(newExpense) {
     setExpenses((prevExpenses) => {
@@ -55,11 +52,10 @@ function Expenses() {
       return updatedExpenses;
     });
   }
-  
 
   return (
     <div>
-      <h1 id="expense-header">Expenses</h1>
+      <h1 className="page-header">Expenses</h1>
       <ExpenseTable
         expenses={expenses}
         categories={categories}
