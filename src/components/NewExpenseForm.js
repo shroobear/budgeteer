@@ -19,7 +19,6 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
     newExpense.categoryId = parseInt(newExpense.categoryId);
     newExpense.accountId = parseInt(newExpense.accountId);
 
-    console.log(newExpense);
     fetch("http://localhost:4000/expenses", {
       method: "POST",
       headers: {
