@@ -20,7 +20,6 @@ function NavBar() {
                     Accounts
                 </NavLink>
             </li>
-        <button>Logout</button>
         </ul>
     </div>
   )
