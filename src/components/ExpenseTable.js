@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid"
 
 function ExpenseTable({ expenses, categories, accounts }) {
   const getCategoryName = (categoryId) => {
@@ -24,7 +25,7 @@ function ExpenseTable({ expenses, categories, accounts }) {
       </thead>
       <tbody>
         {expenses.map((expense) => (
-          <tr key={expense.id}>
+          <tr key={uuidv4()}>
             <td>{expense.date}</td>
             <td>${expense.amount}</td>
             <td>{getCategoryName(expense.categoryId)}</td>
