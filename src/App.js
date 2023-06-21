@@ -73,7 +73,7 @@ function App() {
           />
         </Route>
         <Route path="/accounts/:accountId">
-          <AccountPage accounts={accounts} />
+          <AccountPage accounts={accounts} setAccounts={setAccounts}/>
         </Route>
       </Switch>
     </div>
