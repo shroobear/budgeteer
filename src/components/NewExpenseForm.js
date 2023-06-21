@@ -4,11 +4,13 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
   const [expenseObj, setExpenseObj] = useState({
     date: "",
     amount: "",
-    categoryId: "",
+    categoryId: 1,
     description: "",
-    accountId: "",
+    accountId: 1,
     isRecurring: false,
   });
+
+
 
   function addExpense(e) {
     e.preventDefault();
