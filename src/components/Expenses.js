@@ -8,21 +8,54 @@ function Expenses() {
   const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
-    Promise.all([
-      fetch("http://localhost:4000/expenses").then((r) => r.json()),
-      fetch("http://localhost:4000/categories").then((r) => r.json()),
-      fetch("http://localhost:4000/accounts").then((r) => r.json()),
-    ]).then(([expenseData, categoryData, accountData]) => {
-      setExpenses(expenseData);
-      setCategories(categoryData);
-      setAccounts(accountData);
-    });
-    console.log("useEffect rendered ", expenses);
+    fetch("http://localhost:4000/expenses")
+      .then((response) => response.json())
+      .then((expenseData) => {
+        const sortedExpenses = expenseData.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateA - dateB;
+        });
+        setExpenses(sortedExpenses)
+        console.log("useEffect Rendered: ", expenseData)
+      })
+      .catch((error) => {
+        console.error("Error fetching expenses:", error);
+      });
+
+    fetch("http://localhost:4000/categories")
+      .then((response) => response.json())
+      .then((categoryData) => {
+        setCategories(categoryData);
+        console.log("useEffect Rendered: ", categoryData)
+      })
+      .catch((error) => {
+        console.error("Error fetching categories:", error);
+      });
+
+    fetch("http://localhost:4000/accounts")
+      .then((response) => response.json())
+      .then((accountData) => {
+        setAccounts(accountData);
+        console.log("useEffect Rendered: ", accountData)
+      })
+      .catch((error) => {
+        console.error("Error fetching accounts:", error);
+      });
   }, []);
 
   function onExpenseAdd(newExpense) {
-    setExpenses([...expenses, newExpense]);
+    setExpenses((prevExpenses) => {
+      const updatedExpenses = [...prevExpenses, newExpense];
+      updatedExpenses.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateA - dateB;
+      });
+      return updatedExpenses;
+    });
   }
+  
 
   return (
     <div>
