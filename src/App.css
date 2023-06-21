@@ -1,5 +1,5 @@
 .navbar {
-  background-color: darkgreen;
+  background-color: black;
 }
 
 .navbar ul {
@@ -28,13 +28,13 @@
   color: lightgreen;
 }
 
-h1 {
-  display: flex;
-  justify-content: space-evenly;
-}
 
-#expense-header {
+.page-header {
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .expense-table-card {
@@ -115,4 +115,93 @@ h1 {
 
 #addNewExpenseForm p {
   padding: .5rem;
+}
+
+.accounts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+  background-color: #f1f1f1;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.account-card:hover {
+  background-color: #e0e0e0;
+}
+
+.account-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.account-balance {
+  margin-top: 8px;
+  color: #555555;
+}
+
+#new-account-button {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#new-account-button:hover {
+  background-color: darkgreen;
+}
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
