@@ -5,6 +5,7 @@ import Expenses from "./components/Expenses";
 import Accounts from "./components/Accounts";
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import AccountPage from "./components/AccountPage";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -63,13 +64,16 @@ function App() {
             accounts={accounts}
           />
         </Route>
-        <Route path="/accounts">
+        <Route exact path="/accounts">
           <Accounts
             expenses={expenses}
             categories={categories}
             accounts={accounts}
             setAccounts={setAccounts}
           />
+        </Route>
+        <Route path="/accounts/:accountId">
+          <AccountPage accounts={accounts} />
         </Route>
       </Switch>
     </div>
