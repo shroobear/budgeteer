@@ -64,7 +64,7 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
   return (
     <div className="expense-form-card">
       <form id="addNewExpenseForm" onSubmit={addExpense}>
-        <p>Add New Expense:</p>
+        <h2>Add New Expense:</h2>
         <label htmlFor="date">
           Date:{" "}
           <input
@@ -124,7 +124,7 @@ function NewExpenseForm({ categories, accounts, onExpenseAdd }) {
             onChange={handleInputChange}
           />
         </label>
-        <button type="submit" name="expenseSubmit">
+        <button type="submit" name="expenseSubmit" className="button">
           Add
         </button>
       </form>

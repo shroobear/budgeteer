@@ -105,16 +105,24 @@
 }
 
 #addNewExpenseForm button {
-  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#addNewExpenseForm button:hover {
+  background-color: darkgreen;
 }
 
 .expense-form-card {
   display: flex;
   justify-content: center;
-}
-
-#addNewExpenseForm p {
-  padding: .5rem;
+  margin: auto;
+  padding: 2rem;
 }
 
 .accounts-container {
@@ -212,9 +220,24 @@
   align-items: center;
   justify-content: center;
   border: 1px solid black;
+  border-radius: 8px;
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   margin-top: 5rem;
   background-color: rgba(255, 255, 255, 0.658)
+}
+
+.account-table-header {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  cursor: pointer;
+}
+
+#account-table-footer td {
+  text-align: right;
+  border: none;
 }
