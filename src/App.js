@@ -17,12 +17,12 @@ function App() {
       .then((response) => response.json())
       .then((expenseData) => {
         const sortedExpenses = expenseData.sort((a, b) => {
-            const dateA = new Date(a.date);
-            const dateB = new Date(b.date);
-            return dateA - dateB;
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+          return dateA - dateB;
         });
-        setExpenses(sortedExpenses)
-        console.log("useEffect Rendered: ", expenseData)
+        setExpenses(sortedExpenses);
+        console.log("useEffect Rendered: ", expenseData);
       })
       .catch((error) => {
         console.error("Error fetching expenses:", error);
@@ -32,7 +32,7 @@ function App() {
       .then((response) => response.json())
       .then((categoryData) => {
         setCategories(categoryData);
-        console.log("useEffect Rendered: ", categoryData)
+        console.log("useEffect Rendered: ", categoryData);
       })
       .catch((error) => {
         console.error("Error fetching categories:", error);
@@ -42,19 +42,29 @@ function App() {
       .then((response) => response.json())
       .then((accountData) => {
         setAccounts(accountData);
-        console.log("useEffect Rendered: ", accountData)
+        console.log("useEffect Rendered: ", accountData);
       })
       .catch((error) => {
         console.error("Error fetching accounts:", error);
       });
   }, [setExpenses, setAccounts, setCategories]);
 
+    const getCategoryName = (categoryId) => {
+    const category = categories.find((category) => category.id === categoryId);
+    return category ? category.name : "";
+  };
+
   return (
     <div>
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <Dashboard />
+          <Dashboard
+            expenses={expenses}
+            categories={categories}
+            accounts={accounts}
+            getCategoryName={getCategoryName}
+          />
         </Route>
         <Route path="/expenses">
           <Expenses
@@ -73,7 +83,13 @@ function App() {
           />
         </Route>
         <Route path="/accounts/:accountId">
-          <AccountPage accounts={accounts} setAccounts={setAccounts} expenses={expenses} categories={categories}/>
+          <AccountPage
+            accounts={accounts}
+            setAccounts={setAccounts}
+            expenses={expenses}
+            categories={categories}
+            getCategoryName={getCategoryName}
+          />
         </Route>
       </Switch>
     </div>
