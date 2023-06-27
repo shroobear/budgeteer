@@ -1,52 +1,51 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function AccountTable({ expenses, categories, account }) {
+function AccountTable({ expenses, categories, account, getCategoryName }) {
   const filteredExpenses = expenses.filter(
     (expense) => expense.accountId === account.id
   );
-
-  const getCategoryName = (categoryId) => {
-    const category = categories.find((category) => category.id === categoryId);
-    return category ? category.name : "";
-  };
 
   const totalExpenseAmount = filteredExpenses.reduce(
     (total, expense) => total + expense.amount,
     0
   );
 
-  return (
-    <div className="account-table-card">
-      <h2 className="account-table-header">Transactions</h2>
-      <table className="expense-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Category</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredExpenses.map((expense) => (
-            <tr key={uuidv4()}>
-              <td>{expense.date}</td>
-              <td>{getCategoryName(expense.categoryId)}</td>
-              <td>{expense.description}</td>
-              <td>${expense.amount}</td>
+  const accountTableData = filteredExpenses.map((expense) => (
+    <tr key={uuidv4()}>
+      <td>{expense.date}</td>
+      <td>{getCategoryName(expense.categoryId)}</td>
+      <td>{expense.description}</td>
+      <td>${expense.amount}</td>
+    </tr>
+  ));
+
+  if (account.isSavings) {
+    return null;
+  } else {
+    return (
+      <div className="account-table-card">
+        <h2 className="account-table-header">Transactions</h2>
+        <table className="expense-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Amount</th>
             </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr id="account-table-footer">
-            <td colSpan="3">Total</td>
-            <td>${totalExpenseAmount}</td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-  );
+          </thead>
+          <tbody>{accountTableData}</tbody>
+          <tfoot>
+            <tr id="account-table-footer">
+              <td colSpan="3">Total</td>
+              <td>${totalExpenseAmount}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    );
+  }
 }
 
 export default AccountTable;
