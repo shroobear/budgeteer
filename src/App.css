@@ -39,6 +39,7 @@
 
 .expense-table-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 20px
 }
@@ -240,4 +241,14 @@
 #account-table-footer td {
   text-align: right;
   border: none;
+}
+
+.expense-table-card h3 {
+  text-align: center;
+  color: white;
+}
+
+.date-header {
+  text-align: center;
+  color: white;
 }
