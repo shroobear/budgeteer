@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import HandleNewAccount from "./HandleNewAccount";
 import { useHistory } from "react-router-dom";
 
-function Accounts({ expenses, accounts, setAccounts, categories }) {
+function Accounts({ accounts, setAccounts }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const history = useHistory();
 

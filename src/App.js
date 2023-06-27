@@ -49,7 +49,7 @@ function App() {
       });
   }, [setExpenses, setAccounts, setCategories]);
 
-    const getCategoryName = (categoryId) => {
+  const getCategoryName = (categoryId) => {
     const category = categories.find((category) => category.id === categoryId);
     return category ? category.name : "";
   };
@@ -83,12 +83,7 @@ function App() {
           />
         </Route>
         <Route exact path="/accounts">
-          <Accounts
-            expenses={expenses}
-            categories={categories}
-            accounts={accounts}
-            setAccounts={setAccounts}
-          />
+          <Accounts accounts={accounts} setAccounts={setAccounts} />
         </Route>
         <Route path="/accounts/:accountId">
           <AccountPage
