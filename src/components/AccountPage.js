@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import AccountTable from "./AccountTable";
 
-function AccountPage({ accounts, setAccounts, expenses, categories }) {
+function AccountPage({
+  accounts,
+  setAccounts,
+  expenses,
+  categories,
+  getCategoryName,
+}) {
   const { accountId } = useParams();
   const history = useHistory();
   const [isBalanceDialogOpen, setIsBalanceDialogOpen] = useState(false);
@@ -90,12 +96,21 @@ function AccountPage({ accounts, setAccounts, expenses, categories }) {
         <h1>{account.name}</h1>
         <p>Balance: ${account.amount}</p>
         <div className="button-group">
-          <button className="button" onClick={openBalanceDialog}>Change Balance</button>
-          <button className="button" onClick={handleGoBack}>Go Back</button>
+          <button className="button" onClick={openBalanceDialog}>
+            Change Balance
+          </button>
+          <button className="button" onClick={handleGoBack}>
+            Go Back
+          </button>
         </div>
       </div>
       {isBalanceDialogOpen && renderedBalanceDialog}
-    <AccountTable expenses={expenses} categories={categories} account={account}/>
+      <AccountTable
+        expenses={expenses}
+        categories={categories}
+        account={account}
+        getCategoryName={getCategoryName}
+      />
     </div>
   );
 }
