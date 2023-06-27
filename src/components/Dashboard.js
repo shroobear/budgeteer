@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import SpendingBreakdowns from "./SpendingBreakdowns";
 
 function Dashboard({
   expenses,
@@ -7,7 +8,6 @@ function Dashboard({
   getCategoryName,
   getAccountName,
 }) {
-  const [selectedAccount, setSelectedAccount] = useState("");
   const today = new Date();
 
   function recurringList(expenses) {
@@ -41,10 +41,6 @@ function Dashboard({
     ));
   }
 
-  const handleAccountFilterChange = (e) => {
-    setSelectedAccount(e.target.value);
-  };
-
   return (
     <div>
       <h2 className="date-header">
@@ -65,6 +61,13 @@ function Dashboard({
           <tbody>{recurringList(expenses)}</tbody>
         </table>
       </div>
+      <SpendingBreakdowns
+        expenses={expenses}
+        accounts={accounts}
+        categories={categories}
+        getCategoryName={getCategoryName}
+        getAccountName={getAccountName}
+      />
     </div>
   );
 }
