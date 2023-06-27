@@ -54,6 +54,11 @@ function App() {
     return category ? category.name : "";
   };
 
+  const getAccountName = (accountId) => {
+    const account = accounts.find((account) => account.id === accountId);
+    return account ? account.name : "";
+  };
+
   return (
     <div>
       <NavBar />
@@ -64,6 +69,7 @@ function App() {
             categories={categories}
             accounts={accounts}
             getCategoryName={getCategoryName}
+            getAccountName={getAccountName}
           />
         </Route>
         <Route path="/expenses">
@@ -72,6 +78,8 @@ function App() {
             setExpenses={setExpenses}
             categories={categories}
             accounts={accounts}
+            getCategoryName={getCategoryName}
+            getAccountName={getAccountName}
           />
         </Route>
         <Route exact path="/accounts">

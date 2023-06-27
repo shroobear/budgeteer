@@ -2,8 +2,14 @@ import React from "react";
 import ExpenseTable from "./ExpenseTable";
 import NewExpenseForm from "./NewExpenseForm";
 
-function Expenses({ expenses, setExpenses, accounts, categories }) {
-
+function Expenses({
+  expenses,
+  setExpenses,
+  accounts,
+  categories,
+  getCategoryName,
+  getAccountName,
+}) {
   function onExpenseAdd(newExpense) {
     setExpenses((prevExpenses) => {
       const updatedExpenses = [...prevExpenses, newExpense];
@@ -21,8 +27,8 @@ function Expenses({ expenses, setExpenses, accounts, categories }) {
       <h1 className="page-header">Expenses</h1>
       <ExpenseTable
         expenses={expenses}
-        categories={categories}
-        accounts={accounts}
+        getAccountName={getAccountName}
+        getCategoryName={getCategoryName}
       />
       <NewExpenseForm
         onExpenseAdd={onExpenseAdd}

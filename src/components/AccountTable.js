@@ -1,7 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function AccountTable({ expenses, categories, account, getCategoryName }) {
+function AccountTable({ expenses, account, getCategoryName }) {
   const filteredExpenses = expenses.filter(
     (expense) => expense.accountId === account.id
   );
