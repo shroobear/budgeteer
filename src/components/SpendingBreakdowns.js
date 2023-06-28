@@ -1,12 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppContext from "../context/AppContext";
 
-function SpendingBreakdowns({
-  expenses,
-  accounts,
-  categories,
-  getCategoryName,
-  getAccountName,
-}) {
+function SpendingBreakdowns() {
+    const {expenses, accounts, categories, getCategoryName, getAccountName } = useContext(AppContext)
   function getCategoryTotal(categoryId) {
     const total = expenses.reduce((acc, expense) => {
       if (expense.categoryId === categoryId) {

@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import AccountTable from "./AccountTable";
+import AppContext from "../context/AppContext";
 
-function AccountPage({
-  accounts,
-  setAccounts,
-  expenses,
-  categories,
-  getCategoryName,
-}) {
+function AccountPage() {
+  const { accounts, setAccounts, expenses, categories, getCategoryName } = useContext(AppContext)
   const { accountId } = useParams();
   const history = useHistory();
   const [isBalanceDialogOpen, setIsBalanceDialogOpen] = useState(false);
@@ -105,12 +101,7 @@ function AccountPage({
         </div>
       </div>
       {isBalanceDialogOpen && renderedBalanceDialog}
-      <AccountTable
-        expenses={expenses}
-        categories={categories}
-        account={account}
-        getCategoryName={getCategoryName}
-      />
+      <AccountTable account={account} />
     </div>
   );
 }

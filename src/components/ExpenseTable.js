@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
+import AppContext from "../context/AppContext";
 
-function ExpenseTable({ expenses, getCategoryName, getAccountName }) {
+function ExpenseTable() {
+  const { expenses, getCategoryName, getAccountName } = useContext(AppContext)
 
   return (
     <div className="expense-table-card">

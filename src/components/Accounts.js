@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import HandleNewAccount from "./HandleNewAccount";
 import { useHistory } from "react-router-dom";
+import AppContext from "../context/AppContext";
 
-function Accounts({ accounts, setAccounts }) {
+function Accounts() {
+  const { accounts, setAccounts } = useContext(AppContext)
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const history = useHistory();
 

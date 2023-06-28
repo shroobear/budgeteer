@@ -1,13 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import SpendingBreakdowns from "./SpendingBreakdowns";
+import AppContext from "../context/AppContext";
 
-function Dashboard({
-  expenses,
-  categories,
-  accounts,
-  getCategoryName,
-  getAccountName,
-}) {
+function Dashboard() {
+  const { expenses, categories, accounts, getCategoryName, getAccountName } = useContext(AppContext)
   const today = new Date();
 
   function recurringList(expenses) {

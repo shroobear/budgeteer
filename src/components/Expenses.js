@@ -1,15 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import ExpenseTable from "./ExpenseTable";
 import NewExpenseForm from "./NewExpenseForm";
+import AppContext from "../context/AppContext";
 
-function Expenses({
-  expenses,
-  setExpenses,
-  accounts,
-  categories,
-  getCategoryName,
-  getAccountName,
-}) {
+function Expenses() {
+  const { setExpenses } = useContext(AppContext)
+
   function onExpenseAdd(newExpense) {
     setExpenses((prevExpenses) => {
       const updatedExpenses = [...prevExpenses, newExpense];
@@ -25,16 +21,8 @@ function Expenses({
   return (
     <div>
       <h1 className="page-header">Expenses</h1>
-      <ExpenseTable
-        expenses={expenses}
-        getAccountName={getAccountName}
-        getCategoryName={getCategoryName}
-      />
-      <NewExpenseForm
-        onExpenseAdd={onExpenseAdd}
-        categories={categories}
-        accounts={accounts}
-      />
+      <ExpenseTable />
+      <NewExpenseForm onExpenseAdd={onExpenseAdd}/>
     </div>
   );
 }

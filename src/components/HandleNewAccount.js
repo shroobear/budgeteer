@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AppContext from "../context/AppContext";
 
-function HandleNewAccount({accounts, setAccounts, setIsDialogOpen}) {
+function HandleNewAccount({setIsDialogOpen}) {
+  const {accounts, setAccounts} = useContext(AppContext)
   const [accountObj, setAccountObj] = useState({
     name: "",
     amount: "",

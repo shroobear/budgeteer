@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
+import AppContext from "../context/AppContext";
 
-function AccountTable({ expenses, account, getCategoryName }) {
+function AccountTable({ account }) {
+  const { expenses, getCategoryName } = useContext(AppContext)
+
   const filteredExpenses = expenses.filter(
     (expense) => expense.accountId === account.id
   );
