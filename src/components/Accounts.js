@@ -8,6 +8,7 @@ function Accounts() {
   const { accounts, setAccounts } = useContext(AppContext);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const history = useHistory();
+  console.log(accounts)
 
   function openDialog() {
     setIsDialogOpen(true);
