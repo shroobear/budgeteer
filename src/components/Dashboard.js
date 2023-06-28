@@ -1,9 +1,10 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import SpendingBreakdowns from "./SpendingBreakdowns";
 import AppContext from "../context/AppContext";
 
 function Dashboard() {
-  const { expenses, categories, accounts, getCategoryName, getAccountName } = useContext(AppContext)
+  const { expenses, accounts, getCategoryName, getAccountName } =
+    useContext(AppContext);
   const today = new Date();
 
   function recurringList(expenses) {
@@ -36,6 +37,27 @@ function Dashboard() {
       </tr>
     ));
   }
+  function calculateAccountTotals(accounts) {
+    const totals = {
+      savingsTotal: 0,
+      checkingTotal: 0,
+    };
+
+    accounts.forEach((account) => {
+      const accountBalance = parseFloat(account.amount);
+      console.log(accountBalance);
+      if (account.isSavings) {
+        totals.savingsTotal += accountBalance;
+        console.log("savings total: ", totals.savingsTotal);
+      } else {
+        totals.checkingTotal += accountBalance;
+        console.log("checking total: ", totals.checkingTotal);
+      }
+    });
+    return totals;
+  }
+
+  const accountBalances = calculateAccountTotals(accounts);
 
   return (
     <div>
@@ -57,13 +79,13 @@ function Dashboard() {
           <tbody>{recurringList(expenses)}</tbody>
         </table>
       </div>
-      <SpendingBreakdowns
-        expenses={expenses}
-        accounts={accounts}
-        categories={categories}
-        getCategoryName={getCategoryName}
-        getAccountName={getAccountName}
-      />
+      <SpendingBreakdowns />
+      <div className="account-totals-container">
+        <div className="account-totals-card">
+          <p>Total Savings Balance: ${accountBalances.savingsTotal}</p>
+          <p>Total Checking Balance: ${accountBalances.checkingTotal}</p>
+        </div>
+      </div>
     </div>
   );
 }

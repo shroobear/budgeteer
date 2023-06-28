@@ -7,7 +7,7 @@ const AppProvider = ({ children }) => {
   const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/expenses")
+    fetch("https://budgeteer-api-o032.onrender.com//expenses")
       .then((response) => response.json())
       .then((expenseData) => {
         const sortedExpenses = expenseData.sort((a, b) => {
@@ -22,7 +22,7 @@ const AppProvider = ({ children }) => {
         console.error("Error fetching expenses:", error);
       });
 
-    fetch("http://localhost:4000/categories")
+    fetch("https://budgeteer-api-o032.onrender.com//categories")
       .then((response) => response.json())
       .then((categoryData) => {
         setCategories(categoryData);
@@ -32,7 +32,7 @@ const AppProvider = ({ children }) => {
         console.error("Error fetching categories:", error);
       });
 
-    fetch("http://localhost:4000/accounts")
+    fetch("https://budgeteer-api-o032.onrender.com//accounts")
       .then((response) => response.json())
       .then((accountData) => {
         setAccounts(accountData);
