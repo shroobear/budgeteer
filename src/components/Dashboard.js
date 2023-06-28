@@ -58,6 +58,7 @@ function Dashboard() {
 
   return (
     <div>
+      <h1 className="page-header">Dashboard</h1>
       <h2 className="date-header">
         Today's Date is {today.toLocaleDateString()}
       </h2>
