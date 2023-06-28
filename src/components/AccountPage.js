@@ -4,7 +4,7 @@ import AccountTable from "./AccountTable";
 import AppContext from "../context/AppContext";
 
 function AccountPage() {
-  const { accounts, setAccounts, expenses, categories, getCategoryName } = useContext(AppContext)
+  const { accounts, setAccounts } = useContext(AppContext);
   const { accountId } = useParams();
   const history = useHistory();
   const [isBalanceDialogOpen, setIsBalanceDialogOpen] = useState(false);

@@ -4,7 +4,7 @@ import NewExpenseForm from "./NewExpenseForm";
 import AppContext from "../context/AppContext";
 
 function Expenses() {
-  const { setExpenses } = useContext(AppContext)
+  const { setExpenses } = useContext(AppContext);
 
   function onExpenseAdd(newExpense) {
     setExpenses((prevExpenses) => {
@@ -22,7 +22,7 @@ function Expenses() {
     <div>
       <h1 className="page-header">Expenses</h1>
       <ExpenseTable />
-      <NewExpenseForm onExpenseAdd={onExpenseAdd}/>
+      <NewExpenseForm onExpenseAdd={onExpenseAdd} />
     </div>
   );
 }

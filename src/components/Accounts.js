@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import AppContext from "../context/AppContext";
 
 function Accounts() {
-  const { accounts, setAccounts } = useContext(AppContext)
+  const { accounts, setAccounts } = useContext(AppContext);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const history = useHistory();
 

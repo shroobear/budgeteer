@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import AppContext from "../context/AppContext";
 
 function AccountTable({ account }) {
-  const { expenses, getCategoryName } = useContext(AppContext)
+  const { expenses, getCategoryName } = useContext(AppContext);
 
   const filteredExpenses = expenses.filter(
     (expense) => expense.accountId === account.id
