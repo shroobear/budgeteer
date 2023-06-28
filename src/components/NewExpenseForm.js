@@ -21,7 +21,7 @@ function NewExpenseForm({ onExpenseAdd }) {
     newExpense.categoryId = parseInt(newExpense.categoryId);
     newExpense.accountId = parseInt(newExpense.accountId);
 
-    fetch("http://localhost:4000/expenses", {
+    fetch("https://budgeteer-api-o032.onrender.com/expenses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

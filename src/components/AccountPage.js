@@ -51,7 +51,7 @@ function AccountPage() {
   function changeBalance(e) {
     e.preventDefault();
     const updatedAccount = { ...account, amount: parseFloat(newBalance) };
-    fetch(`http://localhost:4000/accounts/${account.id}`, {
+    fetch(`https://budgeteer-api-o032.onrender.com/accounts/${account.id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",

@@ -36,6 +36,7 @@ budgeteer/
     index.html
     budgeteerLogoBlack.png
     budgeteerLogo.png
+    ...
   src/
     components/
       AccountPage.js

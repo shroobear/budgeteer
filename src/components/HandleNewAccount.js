@@ -15,7 +15,7 @@ function HandleNewAccount({ setIsDialogOpen }) {
 
     newAccount.amount = parseFloat(newAccount.amount);
 
-    fetch("http://localhost:4000/accounts", {
+    fetch("https://budgeteer-api-o032.onrender.com/accounts", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
