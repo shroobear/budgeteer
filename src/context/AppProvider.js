@@ -16,7 +16,6 @@ const AppProvider = ({ children }) => {
           return dateA - dateB;
         });
         setExpenses(sortedExpenses);
-        console.log("useEffect Rendered: ", expenseData);
       })
       .catch((error) => {
         console.error("Error fetching expenses:", error);
@@ -25,9 +24,7 @@ const AppProvider = ({ children }) => {
     fetch("https://budgeteer-api-o032.onrender.com/categories")
       .then((response) => response.json())
       .then((categoryData) => {
-        setCategories(categoryData);
-        console.log("useEffect Rendered: ", categoryData);
-      })
+        setCategories(categoryData);      })
       .catch((error) => {
         console.error("Error fetching categories:", error);
       });
@@ -36,7 +33,6 @@ const AppProvider = ({ children }) => {
       .then((response) => response.json())
       .then((accountData) => {
         setAccounts(accountData);
-        console.log("useEffect Rendered: ", accountData);
       })
       .catch((error) => {
         console.error("Error fetching accounts:", error);

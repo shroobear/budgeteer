@@ -45,13 +45,10 @@ function Dashboard() {
 
     accounts.forEach((account) => {
       const accountBalance = parseFloat(account.amount);
-      console.log(accountBalance);
       if (account.isSavings) {
         totals.savingsTotal += accountBalance;
-        console.log("savings total: ", totals.savingsTotal);
       } else {
         totals.checkingTotal += accountBalance;
-        console.log("checking total: ", totals.checkingTotal);
       }
     });
     return totals;
