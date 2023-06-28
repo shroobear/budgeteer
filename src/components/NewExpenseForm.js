@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AppContext from "../context/AppContext";
 
 function NewExpenseForm({ onExpenseAdd }) {
-  const { categories, accounts } = useContext(AppContext) 
+  const { categories, accounts } = useContext(AppContext);
   const [expenseObj, setExpenseObj] = useState({
     date: "",
     amount: "",
